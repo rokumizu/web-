@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>まかせてWebライト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #0d3050;
+    }
+
+    header {
+      background: #e3f2fd;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .logo-main {
+      font-weight: bold;
+      color: #1976d2;
+    }
+
+    .logo-sub {
+      font-style: italic;
+      color: #0d3050;
+      margin-left: 4px;
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    nav#menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      z-index: 2000;
+    }
+
+    nav#menu a {
+      text-decoration: none;
+      color: #1976d2;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('hero.png') center/cover no-repeat;
+      padding: 50px 16px;
+      color: #fff;
+    }
+
+    .hero-text {
+      text-align: left;
+      max-width: 480px;
+      margin-left: 10px;
+    }
+
+    .hero-text h2 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      padding: 10px 16px;
+      background: rgba(25, 118, 210, 0.85);
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .hero-text p {
+      font-size: 0.85rem;
+      padding: 10px 16px;
+      background: rgba(100, 181, 246, 0.85);
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+      max-height: 200px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 300%;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .dots span {
+      height: 8px;
+      width: 8px;
+      margin: 0 3px;
+      display: inline-block;
+      background-color: #bbb;
+      border-radius: 50%;
+    }
+
+    .dots .active {
+      background-color: #1976d2;
+    }
+
+    section {
+      padding: 32px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      border-left: 5px solid #64b5f6;
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    .feature-box, .plan-card, .option-card {
+      background: #f5faff;
+      padding: 14px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .option-card a {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .faq p {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .line-btn {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .line-btn img {
+      height: 48px;
+    }
+
+    footer {
+      text-align: center;
+      background: #e3f2fd;
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+  
+    .feature-box, .plan-card, .option-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-box:hover,
+    .plan-card:hover,
+    .option-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animated {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+  
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-text h2, .hero-text p {
+  animation: fadeInUp 1s ease-out;
+}
+
+  
+
+.fade-slide {
+  position: relative;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5faff;
+  padding: 10px;
+}
+
+
+.slide-img {
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.slide-img.active {
+  opacity: 1;
+  z-index: 1;
+}
+.hero-text h2, .hero-text p {
+  animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  
+@media (max-width: 480px) {
+  .hero-text {
+    margin-left: 0;
+    padding-left: 8px;
+  }
+  .hero-text h2 {
+    font-size: 0.95rem;
+  }
+  .hero-text p {
+    font-size: 0.75rem;
+  }
+}
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.logo-animated {
+  animation: bounceIn 1s ease forwards;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span class="logo-animated"><span class="logo-main">まかせて</span><span class="logo-sub">Webライト</span></span></h1>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+    <a href="#plans"> 価格プラン</a>
+    <a href="#options"  オプション</a>
+    <a href="#line"> LINE相談</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-text animated">
+    <h2>低価格でホームページを作成</h2>
+    <p>サーバー契約不要ですぐ始められます！</p>
+  </div>
+</div>
+
+
+
+<section id="options" class="animated">
+  <h3> おすすめポイント</h3>
+  <div class="feature-box">📱 スマホで見やすいサイトを作りたい方</div>
+  <div class="feature-box">💬 SNSに貼れるURLが欲しい方</div>
+  <div class="feature-box">💰 コストを抑えて始めたい方</div>
+  <div class="feature-box">🧾 毎月かかるような費用（サーバー・ドメイン）もこのサービスでは不要！</div>
+</section>
+
+<section id="plans" class="animated">
+  <h3> プランと料金</h3>
+  <div class="plan-card">📄 1ページ制作：5,000円</div>
+  <div class="plan-card">✏️ 修正1回無料、2回目以降 +1,000円</div>
+  <div class="plan-card">📲 LINE相談 無制限無料</div>
+</section>
+
+<section class="animated">
+  <h3 id="options"> オプション料金（必要な方のみ）</h3>
+  <div class="option-card">🏢 <a href="about.html" target="_blank">2ページ目の追加制作</a>：+1,500円</div>
+  <div class="option-card">🎞️ <a href="slider.html" target="_blank">スライダー導入</a>：+2,000円</div>
+  <div class="option-card">📨 <a href="form.html" target="_blank">問い合わせフォーム</a>：+2,000円</div>
+  <div class="option-card">🗺️ <a href="map.html" target="_blank">Googleマップ埋め込み</a>：+1,000円</div>
+</section>
+
+<section class="animated">
+  <h3> よくある質問</h3>
+  <div class="faq">
+    <p><strong>Q.</strong> サーバーは契約しないとダメ？<br>
+    → いいえ、<strong>サーバー契約不要の公開方式</strong>なので維持費ゼロです！</p>
+    <p><strong>Q.</strong> ドメインは必要？<br>
+    → 無料URLで十分ですが、独自ドメイン取得も相談OK！</p>
+    <p><strong>Q.</strong> 相談はどこから？<br>
+    → このLINEから気軽にどうぞ！</p>
+  </div>
+</section>
+
+<section id="line" class="line-btn">
+  <a href="https://lin.ee/Y6ZPR3G" target="_blank">
+    <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="LINEで相談" />
+  </a>
+</section>
+
+<footer>
+  &copy; 2025 まかせてWebライト
+</footer>
+
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+let f_index = 0;
+const fadeSlides = document.querySelectorAll(".slide-img");
+const fadeDots = document.querySelectorAll(".dot");
+
+setInterval(() => {
+  fadeSlides.forEach(s => s.classList.remove("active"));
+  fadeDots.forEach(d => d.classList.remove("active"));
+  f_index = (f_index + 1) % fadeSlides.length;
+  fadeSlides[f_index].classList.add("active");
+  fadeDots[f_index].classList.add("active");
+}, 3000);
+</script>
+
+
+</body>
+</html>
+
+<div class="slider fade-slider" id="slider">
+  <div class="slides fade-slide">
+    <img class="slide-img active" src="slide1.jpg" alt="スライド1" />
+    <img class="slide-img" src="slide2.jpg" alt="スライド2" />
+    <img class="slide-img" src="slide3.jpg" alt="スライド3" />
+  </div>
+</div>
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+
