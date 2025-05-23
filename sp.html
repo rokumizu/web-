@@ -43,8 +43,8 @@
     }
 
     @keyframes bounceIn {
-      0%   { transform: scale(0.8); opacity: 0; }
-      60%  { transform: scale(1.05); opacity: 1; }
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -120,19 +120,24 @@
       border-left: 5px solid #64b5f6;
       padding-left: 12px;
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .feature-box, .plan-card, .option-card {
+    .feature-box, .plan-card, .option-card, .faq-box {
       background: #f5faff;
-      padding: 14px;
+      padding: 16px;
       border-radius: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .feature-box:hover,
     .plan-card:hover,
-    .option-card:hover {
+    .option-card:hover,
+    .faq-box:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
@@ -141,11 +146,6 @@
       color: #1976d2;
       text-decoration: none;
       font-weight: bold;
-    }
-
-    .faq p {
-      font-size: 0.95rem;
-      margin-bottom: 16px;
     }
 
     .line-btn {
@@ -211,7 +211,7 @@
 </div>
 
 <section id="options">
-  <h3><img src="img/icon1.png" class="icon-circle"> おすすめポイント</h3>
+  <h3><img src="img/icon1.png" class="icon-circle">おすすめポイント</h3>
   <div class="feature-box">📱 スマホで見やすいサイトを作りたい方</div>
   <div class="feature-box">💬 SNSに貼れるURLが欲しい方</div>
   <div class="feature-box">💰 コストを抑えて始めたい方</div>
@@ -219,14 +219,14 @@
 </section>
 
 <section id="plans">
-  <h3><img src="img/icon2.png" class="icon-circle"> プランと料金</h3>
+  <h3><img src="img/icon2.png" class="icon-circle">プランと料金</h3>
   <div class="plan-card">📄 1ページ制作：5,000円</div>
   <div class="plan-card">✏️ 修正1回無料、2回目以降 +1,000円</div>
   <div class="plan-card">📲 LINE相談 無制限無料</div>
 </section>
 
 <section>
-  <h3><img src="img/icon3.png" class="icon-circle"> オプション料金</h3>
+  <h3><img src="img/icon3.png" class="icon-circle">オプション料金</h3>
   <div class="option-card">🏢 <a href="about.html" target="_blank">2ページ目の追加制作</a>：+1,500円</div>
   <div class="option-card">🎞️ <a href="slider.html" target="_blank">スライダー導入</a>：+2,000円</div>
   <div class="option-card">📨 <a href="form.html" target="_blank">問い合わせフォーム</a>：+2,000円</div>
@@ -234,14 +234,20 @@
 </section>
 
 <section>
-  <h3><img src="img/icon4.png" class="icon-circle"> よくある質問</h3>
+  <h3><img src="img/icon4.png" class="icon-circle">よくある質問</h3>
   <div class="faq">
-    <p><strong>Q.</strong> サーバーは契約しないとダメ？<br>
-    → いいえ、<strong>サーバー契約不要の公開方式</strong>なので維持費ゼロです！</p>
-    <p><strong>Q.</strong> ドメインは必要？<br>
-    → 無料URLで十分ですが、独自ドメイン取得も相談OK！</p>
-    <p><strong>Q.</strong> 相談はどこから？<br>
-    → このLINEから気軽にどうぞ！</p>
+    <div class="faq-box">
+      <p><strong>Q.</strong> サーバーは契約しないとダメ？<br>
+      → いいえ、<strong>サーバー契約不要の公開方式</strong>なので維持費ゼロです！</p>
+    </div>
+    <div class="faq-box">
+      <p><strong>Q.</strong> ドメインは必要？<br>
+      → 無料URLで十分ですが、独自ドメイン取得も相談OK！</p>
+    </div>
+    <div class="faq-box">
+      <p><strong>Q.</strong> 相談はどこから？<br>
+      → このLINEから気軽にどうぞ！</p>
+    </div>
   </div>
 </section>
 
