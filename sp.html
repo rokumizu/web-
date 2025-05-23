@@ -37,10 +37,6 @@
       margin-left: 4px;
     }
 
-    .logo-animated {
-      animation: bounceIn 1s ease forwards;
-    }
-
     .menu-icon {
       font-size: 1.8rem;
       cursor: pointer;
@@ -86,7 +82,6 @@
       background: rgba(25, 118, 210, 0.85);
       border-radius: 20px;
       display: inline-block;
-      animation: fadeInUp 1s ease-out;
     }
 
     .hero-text p {
@@ -95,13 +90,11 @@
       background: rgba(100, 181, 246, 0.85);
       border-radius: 20px;
       display: inline-block;
-      animation: fadeInUp 1s ease-out;
     }
 
     section {
       padding: 32px 20px;
       border-bottom: 1px solid #eee;
-      animation: fadeInUp 0.8s ease-out;
     }
 
     h3 {
@@ -109,6 +102,17 @@
       border-left: 5px solid #64b5f6;
       padding-left: 12px;
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      vertical-align: middle;
     }
 
     .feature-box, .plan-card, .option-card {
@@ -158,10 +162,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes bounceIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      60% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+    .animated {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-text h2, .hero-text p {
+      animation: fadeInUp 1s ease-out;
     }
 
     @media (max-width: 480px) {
@@ -175,6 +181,16 @@
       .hero-text p {
         font-size: 0.75rem;
       }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .logo-animated {
+      animation: bounceIn 1s ease forwards;
     }
   </style>
 </head>
@@ -191,41 +207,44 @@
 </header>
 
 <div class="hero">
-  <div class="hero-text">
+  <div class="hero-text animated">
     <h2>低価格でホームページを作成</h2>
     <p>サーバー契約不要ですぐ始められます！</p>
   </div>
 </div>
 
-<section id="options">
-  <h3>おすすめポイント</h3>
+<section id="options" class="animated">
+  <h3><img src="img/icon1.png" class="icon-circle">おすすめポイント</h3>
   <div class="feature-box">📱 スマホで見やすいサイトを作りたい方</div>
   <div class="feature-box">💬 SNSに貼れるURLが欲しい方</div>
   <div class="feature-box">💰 コストを抑えて始めたい方</div>
-  <div class="feature-box">🧾 サーバーやドメインの費用も不要です！</div>
+  <div class="feature-box">🧾 毎月かかるような費用（サーバー・ドメイン）もこのサービスでは不要！</div>
 </section>
 
-<section id="plans">
-  <h3>プランと料金</h3>
+<section id="plans" class="animated">
+  <h3><img src="img/icon2.png" class="icon-circle">プランと料金</h3>
   <div class="plan-card">📄 1ページ制作：5,000円</div>
   <div class="plan-card">✏️ 修正1回無料、2回目以降 +1,000円</div>
   <div class="plan-card">📲 LINE相談 無制限無料</div>
 </section>
 
-<section>
-  <h3>オプション料金（必要な方のみ）</h3>
+<section class="animated">
+  <h3><img src="img/icon3.png" class="icon-circle">オプション料金（必要な方のみ）</h3>
   <div class="option-card">🏢 <a href="about.html" target="_blank">2ページ目の追加制作</a>：+1,500円</div>
   <div class="option-card">🎞️ <a href="slider.html" target="_blank">スライダー導入</a>：+2,000円</div>
   <div class="option-card">📨 <a href="form.html" target="_blank">問い合わせフォーム</a>：+2,000円</div>
   <div class="option-card">🗺️ <a href="map.html" target="_blank">Googleマップ埋め込み</a>：+1,000円</div>
 </section>
 
-<section>
-  <h3>よくある質問</h3>
+<section class="animated">
+  <h3><img src="img/icon4.png" class="icon-circle">よくある質問</h3>
   <div class="faq">
-    <p><strong>Q.</strong> サーバー契約しないとダメ？<br>→ いいえ、不要です！</p>
-    <p><strong>Q.</strong> ドメインは？<br>→ 無料URLで運用できます！</p>
-    <p><strong>Q.</strong> 相談はどこから？<br>→ LINEからお気軽に！</p>
+    <p><strong>Q.</strong> サーバーは契約しないとダメ？<br>
+    → いいえ、<strong>サーバー契約不要の公開方式</strong>なので維持費ゼロです！</p>
+    <p><strong>Q.</strong> ドメインは必要？<br>
+    → 無料URLで十分ですが、独自ドメイン取得も相談OK！</p>
+    <p><strong>Q.</strong> 相談はどこから？<br>
+    → このLINEから気軽にどうぞ！</p>
   </div>
 </section>
 
